@@ -1,0 +1,33 @@
+.risultato {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+body {
+    background-color: #f0f0f0;
+}
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra gli elementi orizzontalmente */
+    align-items: center; /* Centra gli elementi verticalmente */
+}
+
+.grid-item {
+    flex-basis: 50%; /* Ogni elemento occupa il 50% della larghezza */
+    border: 1px solid black;
+    padding: 10px; /* Aggiunge 10px di padding su tutti i lati */
+    box-sizing: border-box; /* Include padding e border nella larghezza dell'elemento */
+    text-align: center; /* Centra il testo orizzontalmente */
+}
+
+.grid-item p {
+    margin: 0;
+    padding: 0 10px; /* Aggiunge 10px di padding a sinistra e a destra */
+}
+
+.piloti {
+    display: flex;
+    justify-content: space-between; /* Distribuisce gli elementi uniformemente lungo l'asse orizzontale */
+}

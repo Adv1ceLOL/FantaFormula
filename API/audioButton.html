@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="IT">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #3671c6;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn btn-primary audio" id="playButton">Play Audio</button>
+    <script>
+        function playAudio(audioElementId, recordingUrl) {
+            var audio = parent.document.getElementById(audioElementId);
+            audio.src = recordingUrl;
+            console.log("URL Finale: " + audio.src);
+            audio.load(); 
+            audio.play();
+        }
+
+        var urlParams = new URLSearchParams(window.location.search);
+        var audioId = urlParams.get('audioId');
+        var recordingUrl = urlParams.get('recordingUrl');
+
+        document.getElementById('playButton').addEventListener('click', function() {
+            playAudio(audioId, recordingUrl);
+        });
+    </script>
+</body>
+</html>

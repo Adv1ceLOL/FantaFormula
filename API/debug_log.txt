@@ -1,0 +1,35 @@
+JSON Error: Syntax error
+Raw JSON Response: 
+JSON Error: Syntax error
+Raw JSON Response: 
+JSON Error: Syntax error
+Raw JSON Response: 
+JSON Error: Syntax error
+Raw JSON Response: 
+JSON Error: Syntax error
+Raw JSON Response: 
+Meeting key is not set or is empty.
+JSON Error: Syntax error
+Raw JSON Response: 
+Meeting key is not set or is empty.
+JSON Error: Syntax error
+Raw JSON Response: 
+Meeting key is not set or is empty.
+JSON Error: Syntax error
+Raw JSON Response: 
+Meeting key is not set or is empty.
+JSON Error: Syntax error
+Raw JSON Response: 
+Meeting key is not set or is empty.
+JSON Error: Syntax error
+Raw JSON Response: 
+Meeting key is not set or is empty.
+URL: http://localhost/login/API/settori.php?pilota=some_value&PHPSESSID=f5be8169uhur2dtguvm8100aj1
+Session ID: f5be8169uhur2dtguvm8100aj1
+Response: 
+<pre>Array
+(
+)
+</pre><br />
+<b>Warning</b>:  Undefined array key "meeting_key" in <b>C:\xampp\htdocs\login\API\settori.php</b> on line <b>24</b><br />
+ METTING : []

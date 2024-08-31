@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>register.formula1forfun</title>
+        <link rel="stylesheet" href="styleRegister.css">
+    </head>
+    <body>
+        <div class="sfondo"></div>
+        <div class = "box">
+            <a href="index.php">
+                <img src="media/logo.png" alt="logo">
+            </a>
+            <form action="register.php" method="post">
+                <label for="login">WELCOME! Please register here:</label><br>
+               
+                <input class="testo" type="text" id="username" name="username" placeholder="Choose a username" title="Choose a username" required><br>
+                <input class="testo" type="email" id="email" name="email" placeholder="Insert your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please insert a valid email address" required><br>
+                <input class="testo" type="password" id="password" name="password" placeholder="Enter password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="Password must contain at least one digit, one uppercase letter, and be at least 8 characters long." required><br>  
+                <input class="testo" type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat the password" title="Repeat the password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" required><br>       
+                <button class="submit-button" type="submit" value="Register">
+                    <div class="svg-wrapper-1">
+                        <div class="svg-wrapper">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                        >
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path
+                            fill="currentColor"
+                            d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                            ></path>
+                        </svg>
+                        </div>
+                    </div>
+                    <span>Register</span>
+                </button>
+                <!--<input class="submit-button" type="submit" value="Register">-->
+                <a href="loginStart.php" class="login" >Hai gia un account?</a>
+            </form>
+        </div>
+        <div id="popup">
+            <img src="media/logo.png" alt="logo" class="logo2">
+            <p id="popup-text"></p>
+            <button id="popup-close">Chiudi</button>
+        </div>
+        
+    </body>
+    <script>
+        // Seleziona il form, il popup e il suo testo
+        var form = document.querySelector('form');
+        var popup = document.getElementById('popup');
+        var popupText = document.getElementById('popup-text');
+    
+        // Seleziona il bottone per chiudere il popup
+        var popupClose = document.getElementById('popup-close');
+    
+        form.addEventListener('submit', function(e) {
+            // Recupera le password
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+    
+            // Verifica se le password combaciano
+            if (password !== confirmPassword) {
+                // Se le password non combaciano, mostra il popup e previene l'invio del form
+                popupText.textContent = 'Le password non combaciano.';
+                popup.style.display = 'block';
+                e.preventDefault();
+            }
+        });
+    
+        popupClose.addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
+    </script>
+</html>

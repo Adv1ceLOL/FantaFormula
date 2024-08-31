@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login.formula1forfun</title>
+        <link rel="stylesheet" href="styleLogin.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        
+        <div class="sfondo"></div>
+            <div class = "box">
+                <a href="index.php">
+                    <img src="media/logo.png" alt="logo">
+                </a>
+                <form method="post">
+                    <label for="login">Please login:</label><br>
+                    
+                    <input class="testo" type="text" id="username" name="username" placeholder="Enter username" title="Enter username" required><br>
+                    <input class="testo" type="password" id="password" name="password" placeholder="Enter password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="Password must contain at least one digit, one uppercase letter, and be at least 8 characters long." required><br>  
+                    <button class="button-login" name="login">Login</button>
+                    <a href="register.html" class="register" >Non hai un account?</a>
+                </form>
+            </div>
+            <div id="popup">
+                <img src="media/logo.png" alt="logo" class="logo2">
+                <p id="popup-text"></p>
+                <button id="popup-close">Chiudi</button>
+            </div>
+            
+            <script>                  
+                // Seleziona il popup e il suo testo
+                var popup = document.getElementById('popup');
+                var popupText = document.getElementById('popup-text');
+
+                // Seleziona il bottone per chiudere il popup
+                var popupClose = document.getElementById('popup-close');
+
+                $('.button-login').on('click', function(e) {
+                    e.preventDefault();
+
+                    // Recupera i valori di username e password
+                    var username = $('#username').val();
+                    var password = $('#password').val();
+
+                    // Invia i dati al server utilizzando AJAX
+                    $.ajax({
+                        type: 'POST',
+                        url: 'login.php',
+                        data: {
+                            username: username,
+                            password: password
+                        },
+                        dataType: "json", 
+                        success: function(response) {
+                            if (response.error) {
+                                popupText.textContent = response.error;
+                                popup.style.display = 'block';
+                                
+                            } else {
+                                // Handle success case here
+                                window.location.href = "success.html";
+                            }
+                            
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error("AJAX error: " + textStatus + ' : ' + errorThrown);
+                        }
+                    });
+                });
+
+                $('#popup-close').on('click', function() {
+                    popup.style.display = 'none';
+                });
+
+            </script>
+    </body>
+</html><!--pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{7,}"-->
